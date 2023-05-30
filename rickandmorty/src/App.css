@@ -1,0 +1,106 @@
+body {
+  font-family: 'Cuprum', sans-serif;
+}
+.navbar {
+  background-image: url('components/Header/back.png');
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50px;
+  color: #28aeca;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+/* ----------------------------Секция с вопросом---------------------------- */
+.quizCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.quizImage {
+  width: 18rem;
+  border-radius: 100px 10px 100px 10px;
+}
+.question {
+  width: 28rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleQuestion {
+  margin: 0.5rem;
+  font-size: 1.4rem;
+}
+.answerBtn {
+  margin: 0.5rem 1.5rem;
+  width: 10rem;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 1em black;
+  background-image: linear-gradient(
+    to right,
+    #c8e971 0%,
+    #71ca14 51%,
+    #c8e971 100%
+  );
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+.answerBtn:hover {
+  background-position: right center;
+  text-shadow: none;
+}
+
+/* ----------------------------Секция со счетчиком---------------------------- */
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.numberRight,
+.numberWrong {
+  font-size: 12rem;
+  color: transparent;
+  background-clip: text;
+}
+.numberRight {
+  background-image: linear-gradient(135deg, #c8e971, #71ca14);
+}
+.numberWrong {
+  background-image: linear-gradient(135deg, #f68c94, #b61715);
+}
+.showmoreBtn {
+  width: 12rem;
+  color: white;
+  background: #28aeca;
+}
+.showmoreBtn:hover {
+  background: #50c5dc;
+  color: white;
+  text-shadow: 0 0 0.1em black;
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
