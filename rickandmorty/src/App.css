@@ -12,6 +12,10 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
 }
+.header {
+  text-decoration: none;
+}
+
 .main {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -91,16 +95,4 @@ body {
   background: #50c5dc;
   color: white;
   text-shadow: 0 0 0.1em black;
-}
-
-
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

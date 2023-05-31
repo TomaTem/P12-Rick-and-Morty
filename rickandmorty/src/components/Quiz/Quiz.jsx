@@ -1,20 +1,31 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useEffect, useContext} from 'react';
+import {globalContext} from '../../contexts/globalContext';
 
 export default function Quiz() {
-  const [character, setCharacter] = useState([]);
+  const {state, dispatch} = useContext(globalContext);
 
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character/83')
+    const random = Math.ceil(Math.random() * 826);
+    fetch(`https://rickandmortyapi.com/api/character/${random}`)
       .then(data => data.json())
-      .then(res => setCharacter(res));
-  }, []);
+      .then(res => dispatch({
+        type: 'SAVE_CURRENT_CHARACTER',
+        payload: res,
+      }));
+  }, [state.listRight, state.listWrong]);
 
   function checkAnswer(answer) {
-    if (answer === character.gender) {
-      alert('Верно!');
+    if (answer === state.character.gender) {
+      dispatch({
+        type: 'ADD_RIGHT_ANSWER',
+        payload: state.character,
+      })
     } else {
-      alert('Неверно!');
+      dispatch({
+        type: 'ADD_WRONG_ANSWER',
+        payload: state.character,
+      })
     }
   }
 
@@ -22,7 +33,7 @@ export default function Quiz() {
     <>
       <div className='quizCard'>
         <img
-          src={character.image}
+          src={state.character.image}
           className='quizImage'
           alt='Изображение персонажа'
         />
@@ -54,7 +65,7 @@ export default function Quiz() {
             <button
               type='button'
               className='btn answerBtn'
-              onClick={() => checkAnswer('Unknown')}>
+              onClick={() => checkAnswer('unknown')}>
               Неизвестно
             </button>
           </div>

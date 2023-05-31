@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from './logo.jpg';
-import background from './back.png'
-/* <img src={logo} className="App-logo" alt="logo" /> */
+import {Link} from 'react-router-dom';
+// import background from './back.png'
 
 export default function Header() {
   return (
     <>
-      <nav className='navbar bg-body-tertiary'>
-        <div className='container-fluid header'>
+    <Link className='header' to='/'>
+      <nav className='navbar'>
+        <div className='container-fluid' >
             <img
               src={logo}
               alt='Logo'
@@ -18,6 +19,7 @@ export default function Header() {
             Rick and Morty Quiz
         </div>
       </nav>
+      </Link>
     </>
   );
 }
