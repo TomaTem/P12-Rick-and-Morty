@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
+import {useDispatch} from 'react-redux';
+import {deleteResultsAC} from '../../store/actions/mainActions';
 
 export default function Restart() {
   const dispatch = useDispatch();
@@ -13,10 +13,15 @@ export default function Restart() {
           <button
             type='button'
             className='btn btn-light my-1 mx-3'
-            onClick={() => dispatch({
-              type: 'DELETE_RESULTS',
-            })}>
+            onClick={() => dispatch(deleteResultsAC())}>
             Сбросить результаты
+          </button>
+        </Link>
+        <Link to='/results'>
+          <button
+            type='button'
+            className='btn btn-light my-1 mx-3'>
+            Закончить игру
           </button>
         </Link>
       </div>

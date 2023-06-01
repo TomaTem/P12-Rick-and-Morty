@@ -6,8 +6,6 @@ const initialState = {
     listWrong: [],
   };
 
-//   const [state, dispatch] = useLocalStorage('game', initialState);
-
 export function mainReducer(state = initialState, action) {
     switch (action.type) {
       case mainTypes.SAVE_CURRENT_CHARACTER: {

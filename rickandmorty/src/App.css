@@ -46,8 +46,6 @@ body {
 .answerBtn {
   margin: 0.5rem 1.5rem;
   width: 10rem;
-  text-decoration: none;
-  display: inline-block;
   color: white;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -95,4 +93,26 @@ body {
   background: #50c5dc;
   color: white;
   text-shadow: 0 0 0.1em black;
+}
+
+/* ----------------------------Секция с результатом---------------------------- */
+.cardResultOut {
+  align-self: center;
+}
+.cardResult {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin: 2rem 0;
+  color: #28aeca;
+  letter-spacing: 2px;
+  text-shadow: 0 0 0.5em #63a24e;
+}
+.cardText {
+  font-size: 1.5rem;
 }

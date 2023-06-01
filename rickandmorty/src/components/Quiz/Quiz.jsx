@@ -2,33 +2,24 @@ import React from 'react';
 import {useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import {addRightAnswerAC, addWrongAnswerAC, saveCurrentCharacterAC} from '../../store/actions/mainActions'
 
 export default function Quiz() {
 const dispatch = useDispatch();
 const {character, listRight, listWrong} = useSelector((store) => store.mainStore)
 
-
   useEffect(() => {
     const random = Math.ceil(Math.random() * 826);
     fetch(`https://rickandmortyapi.com/api/character/${random}`)
       .then(data => data.json())
-      .then(res => dispatch({
-        type: 'SAVE_CURRENT_CHARACTER',
-        payload: res,
-      }));
+      .then(res => dispatch(saveCurrentCharacterAC(res)));
   }, [listRight, listWrong]);
 
   function checkAnswer(answer) {
     if (answer === character.gender) {
-      dispatch({
-        type: 'ADD_RIGHT_ANSWER',
-        payload: character,
-      })
+      dispatch(addRightAnswerAC(character))
     } else {
-      dispatch({
-        type: 'ADD_WRONG_ANSWER',
-        payload: character,
-      })
+      dispatch(addWrongAnswerAC(character))
     }
   }
 
