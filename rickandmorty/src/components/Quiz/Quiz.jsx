@@ -1,9 +1,12 @@
 import React from 'react';
-import {useEffect, useContext} from 'react';
-import {globalContext} from '../../contexts/globalContext';
+import {useEffect} from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function Quiz() {
-  const {state, dispatch} = useContext(globalContext);
+const dispatch = useDispatch();
+const {character, listRight, listWrong} = useSelector((store) => store.mainStore)
+
 
   useEffect(() => {
     const random = Math.ceil(Math.random() * 826);
@@ -13,18 +16,18 @@ export default function Quiz() {
         type: 'SAVE_CURRENT_CHARACTER',
         payload: res,
       }));
-  }, [state.listRight, state.listWrong]);
+  }, [listRight, listWrong]);
 
   function checkAnswer(answer) {
-    if (answer === state.character.gender) {
+    if (answer === character.gender) {
       dispatch({
         type: 'ADD_RIGHT_ANSWER',
-        payload: state.character,
+        payload: character,
       })
     } else {
       dispatch({
         type: 'ADD_WRONG_ANSWER',
-        payload: state.character,
+        payload: character,
       })
     }
   }
@@ -33,7 +36,7 @@ export default function Quiz() {
     <>
       <div className='quizCard'>
         <img
-          src={state.character.image}
+          src={character.image}
           className='quizImage'
           alt='Изображение персонажа'
         />

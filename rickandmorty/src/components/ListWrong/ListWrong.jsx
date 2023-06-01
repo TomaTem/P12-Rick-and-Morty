@@ -1,14 +1,13 @@
 import React from 'react';
 import Cards from '../Cards/Cards';
-import {useContext} from 'react';
-import {globalContext} from '../../contexts/globalContext';
+import { useSelector } from 'react-redux';
 
-export default function ListRight() {
-  const {state} = useContext(globalContext);
-
+export default function ListWrong() {
+  const {listWrong} = useSelector((store) => store.mainStore)
+  
   return (
     <>
-      <Cards list= {state.listWrong} />
+      <Cards list= {listWrong} />
     </>
   );
 }

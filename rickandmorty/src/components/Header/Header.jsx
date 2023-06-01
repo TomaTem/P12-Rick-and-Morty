@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.jpg';
 import {Link} from 'react-router-dom';
-// import background from './back.png'
 
 export default function Header() {
   return (

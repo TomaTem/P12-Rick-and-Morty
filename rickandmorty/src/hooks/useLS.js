@@ -1,7 +1,13 @@
 import {useEffect, useReducer} from 'react';
 import {reducer} from '../reducers/reducer';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
 
 export function useLocalStorage(key, initialValue) {
+  // const dispatch = useDispatch();
+  // const {character, listRight, listWrong} = useSelector((store) => store.mainStore)
+
   const [state, dispatch] = useReducer(reducer, initialValue, () => {
     let savedValue;
     try {

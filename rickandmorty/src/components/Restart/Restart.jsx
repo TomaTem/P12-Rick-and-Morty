@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useContext} from 'react';
-import {globalContext} from '../../contexts/globalContext';
+import { useDispatch } from 'react-redux';
+
 
 export default function Restart() {
-  const {dispatch} = useContext(globalContext);
+  const dispatch = useDispatch();
 
   return (
     <>

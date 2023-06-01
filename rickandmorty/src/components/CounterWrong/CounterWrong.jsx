@@ -1,15 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useContext} from 'react';
-import {globalContext} from '../../contexts/globalContext';
+import { useSelector } from 'react-redux';
 
 export default function CounterWrong() {
-  const {state} = useContext(globalContext);
+  const {listWrong} = useSelector((store) => store.mainStore)
 
   return (
     <>
       <div className='counter'>
-      <div className='numberWrong'>{state.listWrong.length}</div>
+      <div className='numberWrong'>{listWrong.length}</div>
       <Link to='/wrong'>
       <button
         type='button'

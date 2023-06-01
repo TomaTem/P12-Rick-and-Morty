@@ -1,15 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useContext} from 'react';
-import {globalContext} from '../../contexts/globalContext';
+import { useSelector } from 'react-redux';
 
 export default function CounterRight() {
-  const {state} = useContext(globalContext);
+  const {listRight} = useSelector((store) => store.mainStore)
 
   return (
     <>
     <div className='counter'>
-      <div className='numberRight'>{state.listRight.length}</div>
+      <div className='numberRight'>{listRight.length}</div>
       <Link to='/right'>
       <button
         type='button'
