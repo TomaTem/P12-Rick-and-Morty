@@ -18,3 +18,9 @@ export const addWrongAnswerAC = (character) => ({
 export const deleteResultsAC = () => ({
     type: mainTypes.DELETE_RESULTS,
 });
+
+export const addRandomCharacter  = () => (dispatch) => (
+    fetch(`https://rickandmortyapi.com/api/character/${Math.ceil(Math.random() * 826)}`)
+      .then(data => data.json())
+      .then(res => dispatch(saveCurrentCharacterAC(res)))
+)
